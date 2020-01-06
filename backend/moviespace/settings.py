@@ -81,12 +81,11 @@ WSGI_APPLICATION = 'moviespace.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'moviespace',                                       
-        'USER': 'root',
-        'PASSWORD': 'nickmia2',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
         'HOST': 'localhost',
-        'PORT': '3306', 
+        'PORT': 5432,
     }
 }
 
