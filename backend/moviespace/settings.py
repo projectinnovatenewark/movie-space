@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'graphene_django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'moviespace.movies',
 ]
+
+GRAPHENE = {
+    'SCHEMA': 'moviespace.schema.schema'
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -76,8 +81,12 @@ WSGI_APPLICATION = 'moviespace.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'moviespace',                                       
+        'USER': 'root',
+        'PASSWORD': 'nickmia2',
+        'HOST': 'localhost',
+        'PORT': '3306', 
     }
 }
 

@@ -1,15 +1,15 @@
 from django.db import models
 import graphene
 from graphene_django.types import DjangoObjectType, ObjectType
-from models import User, Comment
+from moviespace.movies.models import User, Comment
 
-class UserType(models.Model):
+class UserType(DjangoObjectType):
     class Meta:
-        user = User
+        model = User
 
-class CommentType(models.Model):
+class CommentType(DjangoObjectType):
     class Meta:
-        comment = Comment
+        model = Comment
 
 class Query(ObjectType):
     user = graphene.Field(UserType, id=graphene.Int())
@@ -18,7 +18,7 @@ class Query(ObjectType):
     comments= graphene.List(CommentType)
 
     def resolve_user(self, info, **kwargs):
-        uid = kwargs.get('id')
+        id = kwargs.get('id')
 
         if id is not None:
             return User.objects.get(pk=id)
@@ -117,7 +117,7 @@ class UpdateComment(graphene.Mutation):
         input = UserInput(required=True)
 
     ok = graphene.Boolean()
-    movie = graphene.Field(MovieType)
+    movie = graphene.Field(CommentType)
 
     @staticmethod
     def mutate(root, info, id, input=None):

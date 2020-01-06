@@ -1,0 +1,29 @@
+{
+    "name": "movie-space",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject",
+      "start-backend-docker": "docker build -t backend:latest backend && docker run -v $PWD/backend:/app/backend backend:latest django-admin startproject moviespace . && docker run -v $PWD/backend:/app/backend -p 8000:8000 backend:latest",
+      "start-frontend-docker": "cd ./frontend && docker build -t frontend . && docker run -it -p 3000:80 frontend"
+    },
+    "eslintConfig": {
+      "extends": "react-app"
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    }
+  }
+  
