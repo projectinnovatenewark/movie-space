@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+
+  backend:
+    container_name: backend
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    command: 'python3 manage.py runserver 0.0.0.0:8000'
+    volumes:
+      - '.:/backend'
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
+
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    volumes:
+      - '.:/frontend'
+      - '/frontend/node_modules'
+    ports:
+      - '3001:3000'
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend

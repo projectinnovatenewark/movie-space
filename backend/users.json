@@ -1,0 +1,36 @@
+[
+    {
+      "model": "movies.user",
+      "pk": 1,
+      "fields": {
+        "uid": "527392",
+        "created_at": "2018-10-10 06:00:00.000000-08:00",
+        "name": "kjheyhey",
+        "first_name": "Kai",
+        "last_name": "Jasey"
+      }
+    },
+    {
+      "model": "movies.user",
+      "pk": 2,
+      "fields": {
+        "uid": "34598",
+        "created_at": "2018-10-20 06:00:00.000000-08:00",
+        "name": "ctavbav",
+        "first_name": "Chris",
+        "last_name": "Tavares"
+      }
+    },
+    {
+      "model": "movies.comment",
+      "pk": 1,
+      "fields": {
+        "uid": "34598",
+        "movie_id": "43654",
+        "created_at": "2018-10-20 06:00:00.000000-08:00",
+        "name": "Subpar Show",
+        "text": "I liked it a little, but not that much! Ya know?",
+        "stars": 5
+      }
+    }
+  ]
