@@ -75,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'moviespace.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -83,7 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER': 'postgres',
+        'USER': '',
+        'PASSWORD': 'abc123',
         'HOST': 'localhost',
         'PORT': 5432,
     }
