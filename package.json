@@ -1,29 +1,55 @@
 {
-    "name": "movie-space",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-      "start": "react-scripts start",
-      "build": "react-scripts build",
-      "test": "react-scripts test",
-      "eject": "react-scripts eject",
-      "start-backend-docker": "docker build -t backend:latest backend && docker run -v $PWD/backend:/app/backend backend:latest django-admin startproject moviespace . && docker run -v $PWD/backend:/app/backend -p 8000:8000 backend:latest",
-      "start-frontend-docker": "cd ./frontend && docker build -t frontend . && docker run -it -p 3000:80 frontend"
-    },
-    "eslintConfig": {
-      "extends": "react-app"
-    },
-    "browserslist": {
-      "production": [
-        ">0.2%",
-        "not dead",
-        "not op_mini all"
-      ],
-      "development": [
-        "last 1 chrome version",
-        "last 1 firefox version",
-        "last 1 safari version"
-      ]
-    }
+  "name": "movie-space",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "webpack --mode development ./app/moviespace/frontend/src/index.js --output ./app/moviespace/frontend/static/frontend/main.js",
+    "build": "webpack --mode production ./app/moviespace/frontend/src/index.js --output ./app/moviespace/frontend/static/frontend/main.js",
+    "start-backend-docker": "docker build -t backend:latest backend && docker run -v $PWD/backend:/app/backend backend:latest django-admin startproject moviespace . && docker run -v $PWD/backend:/app/backend -p 8000:8000 backend:latest",
+    "start-frontend-docker": "cd ./frontend && docker build -t frontend . && docker run -it -p 3000:80 frontend"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/projectinnovatenewark/movie-space.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/projectinnovatenewark/movie-space/issues"
+  },
+  "homepage": "https://github.com/projectinnovatenewark/movie-space#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.0",
+    "@babel/preset-env": "^7.8.0",
+    "@babel/preset-react": "^7.8.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.8.3",
+    "@material-ui/icons": "^4.5.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   }
-  
+}
